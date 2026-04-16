@@ -20,6 +20,24 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## MongoDB Atlas
+
+This app already uses Mongoose, so you only need to point it at a MongoDB Atlas cluster.
+
+1. Create a cluster in MongoDB Atlas.
+2. Create a database user and allow your IP address in Network Access.
+3. Copy `.env.example` to `.env.local`.
+4. Replace `MONGODB_URI` with your Atlas connection string.
+5. Set `NEXTAUTH_SECRET` to a long random value.
+
+Example Atlas URI:
+
+```bash
+mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<database-name>?retryWrites=true&w=majority
+```
+
+If you include a database name in the URI, Mongoose will create collections there automatically when the app writes data.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
